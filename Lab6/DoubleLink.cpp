@@ -68,7 +68,7 @@ void DoubleLink::addTail(int numIn)
 	}
 	else
 	{
-		tail->setNext(new Node(numIn, head, nullptr));
+		tail->setNext(new Node(numIn, tail, nullptr));
 		tail = tail->getNext();
 	}
 }
@@ -170,7 +170,7 @@ void DoubleLink::printForward()
 	}
 	else
 	{
-		traverseReverse(head);
+		traverseForward(head);
 	}
 }
 
