@@ -14,7 +14,12 @@ private:
 	Node * prev;
 	Node * next;
 public:
+	// Default Constructor
 	Node();
+	// Constructor that takes in an int and two nodes
+	Node(int numIn, Node * prev, Node * next);
+
+	// Destructor
 	~Node();
 
 	// Getters

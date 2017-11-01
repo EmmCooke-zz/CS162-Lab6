@@ -1,6 +1,7 @@
 #include <iostream>
 using std::cout;
 using std::cin;
+using std::endl;
 
 #include <string>
 using std::string;
@@ -81,4 +82,52 @@ double getDouble(string stringIn)
 		}
 	}
 	return -1;
+}
+
+/*************************************************************
+* Description: This function asks the user to enter an int
+* and then it validates that it is a possible integer. If it is
+* not, it continues to ask the user for a valid integer until
+* one is entered.
+*************************************************************/
+void getNum(int &numIn)
+{
+	bool valid = false;
+	string validateInput;
+	int num;
+	do
+	{
+		cout << "Please enter an integer: ";
+		getline(cin, validateInput);
+		if (validateInput[0] == '-')	// If the number entered is negative
+		{	// This turns it negative
+			num = -1 * getInt(validateInput.substr(1, validateInput.length()));
+
+			if (!checkStringToInt(validateInput.substr(1, validateInput.length()))
+				|| getInt(validateInput.substr(1, validateInput.length())) == -1)
+			{
+				cout << "Please enter a valid int." << endl;
+			}
+			else
+			{
+				valid = true;
+			}
+		}
+		else	// If the number entered is positive
+		{
+			num = getInt(validateInput);
+			
+			if (!checkStringToInt(validateInput)
+				|| getInt(validateInput) == -1)
+			{
+				cout << "Please enter a valid int." << endl;
+			}
+			else
+			{
+				valid = true;
+			}
+		}
+	} while (!valid);
+
+	numIn = num;
 }

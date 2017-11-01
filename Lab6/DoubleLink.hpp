@@ -20,18 +20,30 @@ public:
 	DoubleLink();
 	// Destructor
 	~DoubleLink();
+	
+	// Getters
+	Node * getHead() const { return head; }
+	Node * getTail() const { return tail; }
 
 	// Functions to add nodes
-	void addHead();			// Function 1
-	void addTail();			// Function 2
+	void addHead(int numIn);			// Function 1
+	void addTail(int numIn);			// Function 2
 
 	// Functions to remove nodes
 	void deleteHead();		// Function 3
 	void deleteTail();		// Function 4
 
-	// Functions to print nodes
-	void traverseReverse();	// Function 5
-	void traverseForward();	// Function 6
+	// Functions to call recursive functions
+	void printReverse();	// Function 5
+	void printForward();	// Function 6
+
+	// Recursive Functions to print nodes
+	void traverseReverse(Node * tail);	// Function 5
+	void traverseForward(Node * head);	// Function 6
+
+	// Functions to print head and tail
+	void printHead() const;	// Extra Credit 1
+	void printTail() const;	// Extra Credit 1
 };
 
 #endif

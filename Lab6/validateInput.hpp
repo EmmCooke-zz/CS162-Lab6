@@ -14,5 +14,7 @@ bool checkStringToInt(string);
 
 int getInt(string);
 double getDouble(string);
+
+void getNum(int &num);
 #endif
 

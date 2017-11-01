@@ -17,13 +17,22 @@ Node::Node()
 }
 
 /*************************************************
+* Description: Constructor that takes in an int
+* and two nodes.
+*************************************************/
+Node::Node(int numIn, Node * prev, Node * next)
+{
+	setNum(numIn);
+	setPrev(prev);
+	setNext(next);
+}
+
+/*************************************************
 * Description: Destructor. Frees memory held by prev
 * and next.
 *************************************************/
 Node::~Node()
 {
-	delete prev;
-	delete next;
 }
 
 /*************************************************
