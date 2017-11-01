@@ -141,6 +141,7 @@ void DoubleLink::printReverse()
 	}
 	else
 	{	// Recursively print values
+		cout << "Your reversed Linked List is: ";
 		traverseReverse(tail);
 	}
 }
@@ -153,7 +154,7 @@ void DoubleLink::traverseReverse(Node * tail)
 {
 	if (tail != nullptr)	// Recursively until nullptr
 	{
-		cout << tail->getNum() << "\t";
+		cout << tail->getNum() << " ";
 		traverseReverse(tail->getPrev());
 	}
 }
@@ -170,6 +171,7 @@ void DoubleLink::printForward()
 	}
 	else
 	{	// Recursively print values
+		cout << "Your Linked List is: ";
 		traverseForward(head);
 	}
 }
@@ -182,7 +184,7 @@ void DoubleLink::traverseForward(Node * head)
 {
 	if (head != nullptr)	// Recursively until nullptr
 	{
-		cout << head->getNum() << "\t";
+		cout << head->getNum() << " ";
 		traverseForward(head->getNext());
 	}
 }
