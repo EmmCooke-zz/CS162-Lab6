@@ -24,12 +24,24 @@
     <ClCompile Include="DoubleLink.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="validateInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DoubleLink.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validateInput.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
