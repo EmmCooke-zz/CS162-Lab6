@@ -26,14 +26,14 @@ DoubleLink::DoubleLink()
 DoubleLink::~DoubleLink()
 {
 	Node * currentNode = head;
-	if (currentNode != nullptr)
+	if (currentNode != nullptr)	// There exists a node
 	{
 		while (currentNode->getNext() != nullptr)
 		{
 			currentNode = currentNode->getNext();
-			delete currentNode->getPrev();
+			delete currentNode->getPrev();	// Deletes the previous node
 		}
-		delete currentNode;
+		delete currentNode; //clears the pointer
 	}
 }
 
@@ -43,15 +43,15 @@ DoubleLink::~DoubleLink()
 *************************************************/
 void DoubleLink::addHead(int numIn)
 {
-	if (head == nullptr)
+	if (head == nullptr)	// If head doesn't exist
 	{
-		head = new Node(numIn, head, head);
-		tail = head;
+		head = new Node(numIn, head, head);	// New node
+		tail = head;	// Tail points to same node
 	}
 	else
-	{
+	{	// New node points to the previous head
 		head->setPrev(new Node(numIn, nullptr, head));
-		head = head->getPrev();
+		head = head->getPrev();	// Moves the head to the new node
 	}
 }
 
@@ -61,15 +61,15 @@ void DoubleLink::addHead(int numIn)
 *************************************************/
 void DoubleLink::addTail(int numIn)
 {
-	if (tail == nullptr)
+	if (tail == nullptr)	// If tail doesn't exist
 	{
-		tail = new Node(numIn, tail, tail);
-		head = tail;
+		tail = new Node(numIn, tail, tail);	// New Node
+		head = tail;	// Head points to same node
 	}
 	else
-	{
+	{	// New node points to the previous tail
 		tail->setNext(new Node(numIn, tail, nullptr));
-		tail = tail->getNext();
+		tail = tail->getNext();	// Moves the tail to the new node
 	}
 }
 
@@ -81,19 +81,19 @@ void DoubleLink::deleteHead()
 {
 	Node * currentHead = head;
 
-	if (head == nullptr)
+	if (head == nullptr) // If head doesn't exist
 	{
 		cout << "There is nothing to delete!" << endl;
 	}
 	else
 	{
-		if (head == tail)
+		if (head == tail)	// There is one node to delete
 		{
 			head = nullptr;
 			tail = nullptr;
 		}
-		else
-		{
+		else	// Moves the head to the next node
+		{		// and deletes the current head
 			head = head->getNext();
 			head->setPrev(nullptr);
 		}
@@ -109,19 +109,19 @@ void DoubleLink::deleteTail()
 {
 	Node * currentTail = tail;
 
-	if (tail == nullptr)
+	if (tail == nullptr)	// If tail doesn't exist
 	{
 		cout << "There is nothing to delete!" << endl;
 	}
 	else
 	{
-		if (tail == head)
+		if (tail == head)	// There is one node to delete
 		{
 			tail = nullptr;
 			head = nullptr;
 		}
-		else
-		{
+		else	// Moves the tail to the next node
+		{		// and deletes the current tail
 			tail = tail->getPrev();
 			tail->setNext(nullptr);
 		}
@@ -135,12 +135,12 @@ void DoubleLink::deleteTail()
 *************************************************/
 void DoubleLink::printReverse()
 {
-	if (tail == nullptr)
+	if (tail == nullptr)	// If tail doesn't exist
 	{
 		cout << "There is nothing to print!" << endl;
 	}
 	else
-	{
+	{	// Recursively print values
 		traverseReverse(tail);
 	}
 }
@@ -151,7 +151,7 @@ void DoubleLink::printReverse()
 *************************************************/
 void DoubleLink::traverseReverse(Node * tail)
 {
-	if (tail != nullptr)
+	if (tail != nullptr)	// Recursively until nullptr
 	{
 		cout << tail->getNum() << "\t";
 		traverseReverse(tail->getPrev());
@@ -164,12 +164,12 @@ void DoubleLink::traverseReverse(Node * tail)
 *************************************************/
 void DoubleLink::printForward()
 {
-	if (head == nullptr)
+	if (head == nullptr)	// If head doesn't exist
 	{
 		cout << "There is nothing to print!" << endl;
 	}
 	else
-	{
+	{	// Recursively print values
 		traverseForward(head);
 	}
 }
@@ -180,7 +180,7 @@ void DoubleLink::printForward()
 *************************************************/
 void DoubleLink::traverseForward(Node * head)
 {
-	if (head != nullptr)
+	if (head != nullptr)	// Recursively until nullptr
 	{
 		cout << head->getNum() << "\t";
 		traverseForward(head->getNext());
@@ -193,7 +193,7 @@ void DoubleLink::traverseForward(Node * head)
 *************************************************/
 void DoubleLink::printHead() const
 {
-	if (head != nullptr)
+	if (head != nullptr)	// If head exists
 	{
 		cout << "Head Value: " << head->getNum();
 	}
@@ -205,7 +205,7 @@ void DoubleLink::printHead() const
 *************************************************/
 void DoubleLink::printTail() const
 {
-	if (tail != nullptr)
+	if (tail != nullptr)	// If tail exists
 	{
 		cout << "Tail Value: " << tail->getNum();
 	}
